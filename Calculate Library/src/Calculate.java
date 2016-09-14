@@ -38,12 +38,23 @@ public class Calculate {
 	}
 	
 	public static String toImproperFrac (int a, int b, int c) {
+		String answer;
+		answer = (a*c) + b;
+		return (answer + "/" c);
+	}
+	
+	public static String toMixedNum (int a, int b) {
 		int answer;
-		answer = 
+		answer = ((a/b)/b);
+		return (answer);
 	}
 	
-
-		
+	public static String foil (int a, int b, int c, int d, String e) {
+		int answer;
+		answer = a*c;
+		answer = b*c;
+		return (a + "x^2" + "+" b + "x" + "+" c);
 	}
 	
+	public static int isDivisibleBy
 }	
