@@ -95,16 +95,6 @@ public class Calculate {
 	}
 	
 	public static double round2 (double a) {
-		if (a > 0.005){
-			return (int) a;
-			a = a/100.0;
-		}else (a < 0.005){
-			return int a;
-			a = a + 0.005;
-		}
-	}
-	
-	public static double exponent (double a, int b) {
 		}
 	}
 }	
