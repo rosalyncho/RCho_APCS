@@ -104,7 +104,7 @@ public class Calculate {
 		}
 	}
 	
-	public static double exponent (double a, int b) {
+	public static double exponent (double a, int b) {}
 		}
 	}
 }	

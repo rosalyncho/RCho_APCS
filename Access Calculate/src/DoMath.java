@@ -5,5 +5,11 @@ public class DoMath {
 		System.out.println(Calculate.cube(3));
 		System.out.println(Calculate.average(5,10));
 		System.out.println(Calculate.average(5,10));
+		System.out.println(Calculate.toDegrees(180/3.14159));
+		System.out.println(Calculate.toRadians(3.14159/180));
+		System.out.println(Calculate.discriminant(2,3,4));
+		System.out.println(Calculate.toImproperFrac(2,3,4));
+		System.out.println(Calculate.toMixedNum(2,3));
+		System.out.println(Calculate.foil(2,3,4,5));
 	}
 }
