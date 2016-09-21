@@ -38,19 +38,18 @@ public class Calculate {
 	}
 	
 	public static String toImproperFrac (int a, int b, int c) {
-		return(a + "/" + c);
+		return((a*c)+b + "/" + c);
 	}
 	
 	public static String toMixedNum (int a, int b) {
-		String answer = ((a/b)/b);
-		return (answer);
+		return (a/b + "_" + a%b + "/" + b);
 	}
 	
 	public static String foil (int a, int b, int c, int d, String e) {
 		int y = b*d;
 		b = a*d + c*b;
 		a = a*c;
-		return(a + e + "^2 + " + b + e + y);
+		return(a + e + "^2 + " + b + e + " -" + y);
 	}
 	
 	public static boolean isDivisibleBy (int a, int b) {
@@ -76,6 +75,7 @@ public class Calculate {
 		}else if (b > a) {
 			return b;
 		}
+		return 0;
 	}
 	
 	public static double max (double a, double b, double c) {
@@ -86,6 +86,7 @@ public class Calculate {
 		}else if (c > a && c > b) {
 			return c;
 		}
+		return 0;
 	}
 	
 	public static int min (int a, int b) {
@@ -94,6 +95,7 @@ public class Calculate {
 		}else if (b < a) {
 			return b;
 			}
+		return 0;
 	}
 	
 	public static double round2 (double a) {
@@ -107,7 +109,7 @@ public class Calculate {
 		double answer = 1;
 		for (int i = 1; i<= b; i++){
 		answer *= a;
-	}
+		}
 	return answer;
 	}
 	
@@ -116,9 +118,15 @@ public class Calculate {
 		for (int i = 1; i <= a; i++){
 			answer *= a;
 		}
-		return answer;
-	}
-
+		return answer; 
+		}
+	
+	public static boolean isPrime (int a) {
+		for (int i=2; i <= a; i++) {
+			if (a%i == 0)
+			return (true);
+		}
+			return (false);
 		}
 	}
-}	
+
