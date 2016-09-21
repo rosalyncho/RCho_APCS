@@ -128,5 +128,9 @@ public class Calculate {
 		}
 			return (false);
 		}
+	
+	public static int gcf (int a, int b) {
+		
+	}
 	}
 
