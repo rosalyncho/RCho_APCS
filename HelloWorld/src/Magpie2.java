@@ -20,6 +20,12 @@ public class Magpie2 {
 				|| statement.indexOf("sister") >= 0
 				|| statement.indexOf("brother") >= 0) {
 			response = "Tell me more about your family.";
+		} else if (statement.indexOf("Mrs.") >= 0) {
+			response = "She sounds like a good teacher.";
+		} else if (statement.indexOf("Mr.") >= 0) {
+			response = "He sounds like a good teacher.";
+		} else if (statement.indexOf("") >= 0) {
+			response = "Say something, please.";
 		} else {
 			response = getRandomResponse();
 		}
