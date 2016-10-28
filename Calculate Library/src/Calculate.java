@@ -1,136 +1,197 @@
+// Rosalyn Cho
+// Calculate Library
+// 10/27/2016
 
 public class Calculate {
-	public static int square (int num) {
-		int x=num*num;
-		return x;
+	
+// Part 1: Methods, Headers, and Basic Math	
+	public static int square (int a) { // accepts and returns an integer
+		return a*a; // returns the square of the value passed
 	}
 	
-	public static int cube (int number) {
-		int answer;
-		answer = number*number*number;
-		return (answer);
+	public static int cube (int a) { // accepts and returns an integer
+		return a*a*a; // returns the cube of the value passed
 	}
 	
-	public static double average (double number, double num) {
-		return number+num/2;
+	public static double average (double num1, double num2) { // accepts two doubles and returns a double
+		return (num1 + num2)/2; // returns the average of the values passed
 	}
 	
-	public static double average (double number, double num, double n) {
-		return number+num+n/3;
+	public static double average (double num1, double num2, double num3) { // accepts three doubles and returns a double
+		return (num1 + num2 + num3)/3; // returns the average of the values passed
 	}
 	
-	public static double toDegrees (double radians) {
-		double answer;
-		answer = 180/3.14159;
-		return (answer);			
+	public static double toDegrees (double radians) { // accepts a double and returns a double
+		return (180/3.14159)*(radians); // converts an angle measure given in radians into degrees
 	}
 	
-	public static double toRadians (double degrees) {
-		double answer;
-		answer = 3.14159/180;
-		return (answer);
+	public static double toRadians (double degrees) { // accepts a double and returns a double
+		return (3.14159/180)*(degrees); // converts an angle measure given in degrees into radians
 	}
 	
-	public static double discriminant (double a, double b, double c) {
-		double answer;
-		answer = b*b - 4*a*c;
-		return answer;
+	public static double discriminant (double a, double b, double c) { // accepts three doubles and returns a double
+		return b*b - 4*a*c; // returns the value of the discriminant
 	}
 	
-	public static String toImproperFrac (int a, int b, int c) {
-		return((a*c)+b + "/" + c);
+	public static String toImproperFrac (int wholenumber, int numerator, int denominator) { // accepts three integers and returns a String
+		return ((wholenumber*denominator)+numerator + "/" + denominator); // converts mixed number into an improper fraction
 	}
 	
-	public static String toMixedNum (int a, int b) {
-		return (a/b + "_" + a%b + "/" + b);
+	public static String toMixedNum (int numerator, int denominator) { // accepts two integers and returns a String
+		// converts an improper fraction into a mixed number
+	    boolean check = Calculate.isDivisibleBy(numerator, denominator);
+	    if (check == true) {
+		return numerator/denominator + "";
+	    } else {
+		return numerator/denominator + "_" + numerator % denominator + "/" + denominator;
+		}
 	}
 	
-	public static String foil (int a, int b, int c, int d, String e) {
-		int y = b*d;
-		b = a*d + c*b;
-		a = a*c;
-		return(a + e + "^2 + " + b + e + " -" + y);
-	}
-	
-	public static boolean isDivisibleBy (int a, int b) {
-		if (a % b == 0 || b % a == 0) {
-			return (true); 
+	public static String foil (int a, int b, int c, int d, String e) { // accepts four integers and a String and returns a String
+		// converts a binomial multiplication of the form (ax + b)(cx + d)
+		int last = b*d;
+		int middle = a*d + c*b;
+		int first = a*c;
+		double check = (int) Calculate.absValue(last);
+		if (last > 0) {
+		return (first + e + "^2 + " + middle + e + " + " + check);
 		} else {
-			return(false); }
-	}
-	
-	public static double absValue (double a) {
-		if (a > 0){
-			return a;
-		}else if (a < 0) {
-			return a*-1;
-		}else{
-			return 0;
+		return (first + e + "^2 + " + middle + e + " – " + (int) check);
 		}
-	}
-		
-	public static int max (int a, int b) {
-		if (a > b){
-			return a;
-		}else if (b > a) {
-			return b;
-		}
-		return 0;
-	}
-	
-	public static double max (double a, double b, double c) {
-		if (a > b && a > c){
-			return a;
-		}else if (b > a && b > c) {
-			return b;
-		}else if (c > a && c > b) {
-			return c;
-		}
-		return 0;
-	}
-	
-	public static int min (int a, int b) {
-		if (a < b){
-			return a;
-		}else if (b < a) {
-			return b;
-			}
-		return 0;
-	}
-	
-	public static double round2 (double a) {
-		double answer;
-		double intnumber = (int)(a*100);
-		answer = intnumber/100;
-		return answer;
-		}
-	
-	public static double exponent (double a, int b) {
-		double answer = 1;
-		for (int i = 1; i<= b; i++){
-		answer *= a;
-		}
-	return answer;
-	}
-	
-	public static int factorial (int a) {
-		int answer = 1;
-		for (int i = 1; i <= a; i++){
-			answer *= a;
-		}
-		return answer; 
-		}
-	
-	public static boolean isPrime (int a) {
-		for (int i=2; i <= a; i++) {
-			if (a%i == 0)
-			return (true);
-		}
-			return (false);
-		}
-	
-	public static int gcf (int a, int b) {
-		
-	}
 	}
 
+// Part 2: Methods with Conditionals
+	public static boolean isDivisibleBy (int num1, int num2) { // accepts two integers and returns a boolean
+		// determines whether or not one integer is evenly divisible by another
+		if (num2 == 0 || num1 == 0) {
+			throw new IllegalArgumentException("divisor : 0");
+		}
+		if (num1 % num2 == 0 || num2 % num1 == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public static double absValue (double a) { // accepts a double and returns a double
+		// returns the absolute value of the number passed
+		if (a > 0) {
+			return a;
+		} else {
+			return a*-1;
+		}
+	}
+	
+	public static int max (int num1, int num2) { // accepts two integers and returns a boolean
+		// returns the larger of the values passed
+		if (num1 > num2) {
+			return num1;
+		} else {
+			return num2;
+		}
+	}
+	
+	public static double max (double number1, double number2, double number3) { // accepts three doubles and returns a double
+		// returns the largest of the values passed
+		if (number1 > number2 && number1 > number3) {
+			return number1;
+		} else if (number2 > number1 && number2 > number3) {
+			return number2;
+		} else {
+			return number3;
+		}
+	}
+	
+	public static int min (int number1, int number2) { // accepts two integers and returns an integer
+		// returns the smaller of the values passed
+		if (number1 < number2) {
+			return number1;
+		} else {
+			return number2;
+		}
+	}
+	
+	public static double round2 (double a) { // accepts and returns a double 
+		// rounds a double correctly to 2 decimal places
+		double intnumber = (int)(a*100);
+		return intnumber/100;
+	}
+	
+// Part 3: Methods that use Loops and Calls to Other Methods
+	public static double exponent (double base, int power) { // accepts a double and an integer and returns a double
+		// raises a value to a positive integer power
+		if (power < 0) {
+			throw new IllegalArgumentException("negative exponent: " + power);
+		}
+		double answer = 1;
+		for (int i = 1; i <= power; i++) {
+			answer *= base;
+		}
+		return answer;
+	}
+	
+	public static int factorial (int a) { // accepts an integer and returns an integer
+		// returns the factorial of the value passed
+		if (a < 0) {
+			throw new IllegalArgumentException("negative a: " + a);
+		}
+		int answer = 1;
+	    for ( int i = 2; i <= a; i++ ) {  
+	        answer *= i;
+	    }  
+	    return answer;
+	}  
+	
+	public static boolean isPrime (int a) { // accepts an integer and returns a boolean
+		// determines whether or not an integer is prime
+	    boolean check;
+	    if (a > 1) {
+	    	for (int i = a - 1; i > 1; i--) {
+	    		check = Calculate.isDivisibleBy(a, i);
+	    		if (check == true) {
+	    			return false;
+	    		}
+	    	}
+	    } else {
+	    	return false;
+	    }
+	    return true;
+		}
+
+	public static int gcf (int num1, int num2) { // accepts two positive integers and returns an integer
+		// finds the greatest common factor of two integers
+		while (num2 != 0) {
+			int c = num1;
+			num1 = num2;
+			num2 = c % num2;
+		}
+		return (int)Calculate.absValue(num1);
+	}
+	
+	public static double sqrt (double a) { // accepts and returns a double
+		// returns an approximation of the square root of the value passed, accurate to two decimal places
+		if (a < 0) {
+			throw new IllegalArgumentException ("negative a:" + a);
+		}
+		return Math.sqrt(a);
+	}
+	
+// Part 4: Throwing Exceptions
+	// 1. See factorial, exponent, isDivisibleBy, and sqrt
+	// 2.
+	public static String quadForm (int a, int b, int c) { // accepts three integers and returns a String
+		// uses the coefficients of a quadratic equation in standard form and uses the quadratic formula to approximate the real roots
+		double answer = Calculate.discriminant(a, b, c);
+		double discriminantRoot = Calculate.sqrt(answer);
+	    double root1 = (-b + discriminantRoot) / (2 * a);
+	    double root2 = (-b - discriminantRoot) / (2 * a);
+	    if (answer < 0) {
+	        return ("no real roots");
+	    } else if (answer > 0) {
+	        return (root1 + " and " + root2);
+	    } else if (answer == 0) {
+	    	return (root1 + " ");
+	    }
+		return 0 + "";
+	}
+}
