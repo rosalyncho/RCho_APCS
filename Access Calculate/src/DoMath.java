@@ -1,6 +1,6 @@
 // Rosalyn Cho
 // Do Math
-// 10/15/2016
+// 10/29/2016
 
 public class DoMath {
 	public static void main(String[] args) {
@@ -24,7 +24,7 @@ public class DoMath {
 		System.out.println(Calculate.factorial(4));
 		System.out.println(Calculate.isPrime(3));
 		System.out.println(Calculate.gcf(10, 15));
-		System.out.println(Calculate.sqrt(4));
-		System.out.println(Calculate.quadForm(1, -6, 9));
+		System.out.println(Calculate.sqrt(9));
+		System.out.println(Calculate.quadForm(3, -4, 10));
 	}
 }

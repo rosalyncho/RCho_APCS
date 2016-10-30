@@ -1,6 +1,6 @@
 // Rosalyn Cho
 // Calculate Library
-// 10/27/2016
+// 10/29/2016
 
 public class Calculate {
 	
@@ -114,7 +114,16 @@ public class Calculate {
 	public static double round2 (double a) { // accepts and returns a double 
 		// rounds a double correctly to 2 decimal places
 		double intnumber = (int)(a*100);
-		return intnumber/100;
+		double answer;
+		if ((100*a) - intnumber >= .5) {
+			answer = (int) (100*a+1);
+			answer /= 100;
+			return answer;
+		} else {
+			answer = (int) (100*a);
+			answer /= 100;
+			return answer;
+		}
 	}
 	
 // Part 3: Methods that use Loops and Calls to Other Methods
@@ -160,19 +169,29 @@ public class Calculate {
 
 	public static int gcf (int num1, int num2) { // accepts two positive integers and returns an integer
 		// finds the greatest common factor of two integers
-		while (num2 != 0) {
-			int c = num1;
-			num1 = num2;
-			num2 = c % num2;
-		}
-		return (int)Calculate.absValue(num1);
+		 int answer = 1;
+		 int check = Calculate.max(num1, num2);
+		 if (check == num1) {
+		        for(int i = num1; i >= 1; i--){
+		            if(num1 % i == 0 && num2 % i == 0){
+		                return i;
+		            }
+		        }
+		    } else {
+		        for (int j = num1; j >= 1; j--){
+		            if (num1 % j == 0 && num2 % j == 0){
+		                return j;
+		            }
+		        }
+		    }   
+		    return answer;
 	}
-	
+
 	public static double sqrt (double a) { // accepts and returns a double
 		// returns an approximation of the square root of the value passed, accurate to two decimal places
-		if (a < 0) {
-			throw new IllegalArgumentException ("negative a:" + a);
-		}
+//		if (a < 0) {
+//			throw new IllegalArgumentException ("negative a:" + a);
+//		}
 		return Math.sqrt(a);
 	}
 	
@@ -181,16 +200,16 @@ public class Calculate {
 	// 2.
 	public static String quadForm (int a, int b, int c) { // accepts three integers and returns a String
 		// uses the coefficients of a quadratic equation in standard form and uses the quadratic formula to approximate the real roots
-		double answer = Calculate.discriminant(a, b, c);
+		double answer = (double) Calculate.discriminant(a, b, c);
 		double discriminantRoot = Calculate.sqrt(answer);
 	    double root1 = (-b + discriminantRoot) / (2 * a);
 	    double root2 = (-b - discriminantRoot) / (2 * a);
 	    if (answer < 0) {
 	        return ("no real roots");
 	    } else if (answer > 0) {
-	        return (root1 + " and " + root2);
+	        return (root2 + "0 and " + root1 + "0");
 	    } else if (answer == 0) {
-	    	return (root1 + " ");
+	    	return (root1 + "0");
 	    }
 		return 0 + "";
 	}
