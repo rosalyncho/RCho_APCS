@@ -4,7 +4,6 @@ INDEX VERSION 1.129+C:\Users\APCS2\Desktop\RCho_APCS\.metadata\.plugins\org.ecli
 1470531556.index
 175113916.index
 2380175872.index
-4022798921.index
 902124980.index
 2218115300.index
 1145519623.index
