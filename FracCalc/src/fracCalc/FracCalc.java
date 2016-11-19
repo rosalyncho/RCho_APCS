@@ -9,10 +9,14 @@ public class FracCalc {
     public static void main(String[] args) 
     {
         // TODO: Read the input from the user and call produceAnswer with an equation
-    	Scanner userInput = new Scanner(System.in);
-    	System.out.println("Enter your value.");
-    	String value = userInput.next();
-    	produceAnswer(value);
+    	Scanner console = new Scanner(System.in);
+    	System.out.println("Enter your operation.");
+    	String input = console.next();
+    	if (input.equals("quit")){
+    		String answer=produceAnswer(input);
+    		System.out.println(answer);
+    	}
+    	produceAnswer(input);
     }
     
     // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
@@ -26,7 +30,15 @@ public class FracCalc {
     public static String produceAnswer(String input)
     { 
         // TODO: Implement this function to produce the solution to the input
-    	String[] array = input.split(" ");
+    	String[] splitted = input.split(" "); //parses by spaces
+    	
+  //  	int firstSpace = input.indexOf(" ");
+  //  	int secondSpace = input.indexOf(" ", firstSpace + 2);
+  //  	if(firstSpace < 0){
+  //  		System.out.println("Not an operation");
+  //  	}
+  //  	String firstOperand = input.substring(firstSpace, secondSpace);
+    	//String operator
     	
         return "";
     }
