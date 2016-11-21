@@ -1,7 +1,6 @@
 
 package fracCalc;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class FracCalc {
@@ -33,18 +32,12 @@ public class FracCalc {
     	String firstOperand = new String();
     	String operator = new String();
     	String secondOperand = new String();
-    	String[] splitted = input.split(" "); //parses by spaces
     	int lengthOfInput = input.length(); 
-  //    System.out.println(Arrays.toString(splitted));
     	int firstSpace = input.indexOf(" ");
     	int secondSpace = input.indexOf(" ", firstSpace + 2);
     	operator = input.substring(firstSpace+1, secondSpace);
-  //  	String firstOperand = input.substring(firstSpace, secondSpace);
-  //  	System.out.println(operator);
     	firstOperand = input.substring(0, firstSpace);
-  //  	System.out.println(firstOperand);
     	secondOperand = input.substring(secondSpace+1, lengthOfInput);
-   // 	System.out.println(secondOperand);
     	
         return parseFractions(secondOperand);
     }
@@ -52,10 +45,24 @@ public class FracCalc {
     // TODO: Fill in the space below with any helper methods that you think you will need
     public static String parseFractions(String secondOperand)
     {
-  //  	if (secondOperand.indexOf("_")==-1 && secondOperand.indexOf("/")==-1) {
-    		String wholeNumber = secondOperand.substring(0, secondOperand.indexOf("_"));
-    		String numerator = secondOperand.substring(secondOperand.indexOf("_") + 1, secondOperand.indexOf("/")); //gets the value starting from position 0 to the "_"
-    		String denominator = secondOperand.substring(secondOperand.indexOf("/") + 1, secondOperand.length());
-    		return ("whole:" + wholeNumber + " numerator:" + numerator + " denominator:" + denominator);
+    	String wholeNumber = "0";
+    	String numerator = "0";
+    	String denominator = "0";
+    	int secondOperandLength = secondOperand.length();
+    	if (secondOperand.indexOf("_")==-1 && secondOperand.indexOf("/")==-1) { // if the value is a whole number
+    		wholeNumber = secondOperand;
+    		numerator = "0";
+    		denominator = "1";
+    	} else if (secondOperand.indexOf("_")==-1) { // if the value is a fraction
+    		wholeNumber = "0";
+    		numerator = secondOperand.substring(0, secondOperand.indexOf("/"));
+    		denominator = secondOperand.substring(secondOperand.indexOf("/") + 1, secondOperandLength);
+    	} else { // if the value is a mixed number
+    		wholeNumber = secondOperand.substring(0, secondOperand.indexOf("_"));
+    		numerator = secondOperand.substring(secondOperand.indexOf("_") + 1, secondOperand.indexOf("/")); 
+    		denominator = secondOperand.substring(secondOperand.indexOf("/") + 1, secondOperandLength);
+    	}
+    	
+    	return ("whole:" + wholeNumber + " numerator:" + numerator + " denominator:" + denominator);
     }
 }
