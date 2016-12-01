@@ -32,6 +32,12 @@ public class FracCalc {
     public static String produceAnswer(String input)
     { 
         // TODO: Implement this function to produce the solution to the input
+    	parseInput(input);
+    }
+
+    // TODO: Fill in the space below with any helper methods that you think you will need
+    public static String parseInput(String input)
+    {
     	String firstOperand = new String();
     	String operator = new String();
     	String secondOperand = new String();
@@ -44,8 +50,7 @@ public class FracCalc {
     	
         return parseFractions(secondOperand);
     }
-
-    // TODO: Fill in the space below with any helper methods that you think you will need
+    
     public static String parseFractions(String secondOperand)
     {
     	String wholeNumber = "0";
@@ -67,5 +72,15 @@ public class FracCalc {
     	}
     	
     	return ("whole:" + wholeNumber + " numerator:" + numerator + " denominator:" + denominator);
+    }
+    
+    public static String addSubtractFrac(String input)
+    {
+    	
+    }
+    
+    public static String multiplyDivideFrac(String input)
+    {
+    	
     }
 }
