@@ -161,7 +161,7 @@
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_M-pNUKqOEeaG28q14vcWxQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="FracCalc.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;FracCalc.java&quot; partName=&quot;FracCalc.java&quot; title=&quot;FracCalc.java&quot; tooltip=&quot;FracCalc/src/fracCalc/FracCalc.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/FracCalc/src/fracCalc/FracCalc.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1375&quot; selectionTopPixel=&quot;399&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;FracCalc.java&quot; partName=&quot;FracCalc.java&quot; title=&quot;FracCalc.java&quot; tooltip=&quot;FracCalc/src/fracCalc/FracCalc.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/FracCalc/src/fracCalc/FracCalc.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3597&quot; selectionTopPixel=&quot;1044&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -175,7 +175,7 @@
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="__YPOkKzpEea-g4yIs2Fliw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="FracCalcTestALL.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;FracCalcTestALL.java&quot; partName=&quot;FracCalcTestALL.java&quot; title=&quot;FracCalcTestALL.java&quot; tooltip=&quot;FracCalc/src/fracCalc/FracCalcTestALL.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/FracCalc/src/fracCalc/FracCalcTestALL.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;378&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;FracCalcTestALL.java&quot; partName=&quot;FracCalcTestALL.java&quot; title=&quot;FracCalcTestALL.java&quot; tooltip=&quot;FracCalc/src/fracCalc/FracCalcTestALL.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/FracCalc/src/fracCalc/FracCalcTestALL.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;498&quot; selectionTopPixel=&quot;46&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -358,7 +358,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_jR6a35upEeaAnbUyFlP4zw" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_qv3jQLfoEeaDgdaJfGTmMA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_jR9de5upEeaAnbUyFlP4zw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_ajtrZrixEeaA_LKk5HW4hw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_jR9de5upEeaAnbUyFlP4zw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_jR6a7JupEeaAnbUyFlP4zw" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -382,7 +382,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_jR7A-JupEeaAnbUyFlP4zw" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_qv8bwrfoEeaDgdaJfGTmMA" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_jR84gZupEeaAnbUyFlP4zw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_aj21VLixEeaA_LKk5HW4hw" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_jR84gZupEeaAnbUyFlP4zw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_jR7BA5upEeaAnbUyFlP4zw" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
