@@ -14,9 +14,9 @@ public class FracCalc {
     	Scanner console = new Scanner(System.in);
     	System.out.println("Enter your operation.");
     	String input = console.nextLine();
-    	if (input.equals("quit")){
-    		String answer=produceAnswer(input);
-    		System.out.println(answer);
+    	while (!input.equals("quit")) {
+            System.out.println(produceAnswer(input));
+            input = console.nextLine();
     	}
     	produceAnswer(input);
     }
@@ -32,12 +32,6 @@ public class FracCalc {
     public static String produceAnswer(String input)
     { 
         // TODO: Implement this function to produce the solution to the input
-    	parseInput(input);
-    }
-
-    // TODO: Fill in the space below with any helper methods that you think you will need
-    public static String parseInput(String input)
-    {
     	String firstOperand = new String();
     	String operator = new String();
     	String secondOperand = new String();
@@ -47,8 +41,19 @@ public class FracCalc {
     	operator = input.substring(firstSpace+1, secondSpace);
     	firstOperand = input.substring(0, firstSpace);
     	secondOperand = input.substring(secondSpace+1, lengthOfInput);
-    	
-        return parseFractions(secondOperand);
+        if(operator.equals("+") || (operator.equals("-"))){
+        	return addSubtractFrac(firstOperand,secondOperand);
+        }else if(operator.equals("*") || (operator.equals("/"))){
+        	return multiplyDivideFrac(firstOperand,secondOperand);
+        }
+        return "";
+    }
+
+    // TODO: Fill in the space below with any helper methods that you think you will need
+    public static String[] parseInput(String input)
+    {
+    	String[] answer=input.split(" "); 
+		return answer;
     }
     
     public static String parseFractions(String secondOperand)
@@ -74,12 +79,16 @@ public class FracCalc {
     	return ("whole:" + wholeNumber + " numerator:" + numerator + " denominator:" + denominator);
     }
     
-    public static String addSubtractFrac(String input)
+    public static String toImproperFrac (int wholenumber, int numerator, int denominator) {
+		// converts mixed number into an improper fraction
+	}
+    
+    public static String addSubtractFrac(String firstOperand, String secondOperand)
     {
     	
     }
     
-    public static String multiplyDivideFrac(String input)
+    public static String multiplyDivideFrac(String firstOperand, String secondOperand)
     {
     	
     }
