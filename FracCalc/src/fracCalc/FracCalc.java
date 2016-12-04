@@ -41,10 +41,14 @@ public class FracCalc {
     	operator = input.substring(firstSpace+1, secondSpace);
     	firstOperand = input.substring(0, firstSpace);
     	secondOperand = input.substring(secondSpace+1, lengthOfInput);
-        if(operator.equals("+") || (operator.equals("-"))){
-        	return addSubtractFrac(firstOperand,secondOperand);
-        }else if(operator.equals("*") || (operator.equals("/"))){
-        	return multiplyDivideFrac(firstOperand,secondOperand);
+        if (operator.equals("+")){
+        	return addFrac(firstOperand,secondOperand);
+        } else if(operator.equals("-")){
+        	return subtractFrac(firstOperand,secondOperand);
+        } else if(operator.equals("*")){
+        	return multiplyFrac(firstOperand,secondOperand);
+        } else if(operator.equals("/")){
+        	return divideFrac(firstOperand,secondOperand);
         }
         return "";
     }
@@ -83,12 +87,22 @@ public class FracCalc {
 		// converts mixed number into an improper fraction
 	}
     
-    public static String addSubtractFrac(String firstOperand, String secondOperand)
+    public static String addFrac(String firstOperand, String secondOperand)
     {
     	
     }
     
-    public static String multiplyDivideFrac(String firstOperand, String secondOperand)
+    public static String subtractFrac(String firstOperand, String secondOperand)
+    {
+    	
+    }
+    
+    public static String multiplyFrac(String firstOperand, String secondOperand)
+    {
+    	
+    }
+    
+    public static String divideFrac(String firstOperand, String secondOperand)
     {
     	
     }
