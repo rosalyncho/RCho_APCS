@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;frac&apos; in &apos;fracCalc.FracCalc.toMixedNum(...)&apos; to &apos;operand&apos;&#x0D;&#x0A;- Original project: &apos;FracCalc&apos;&#x0D;&#x0A;- Original element: &apos;fracCalc.FracCalc.toMixedNum(int[]).frac&apos;&#x0D;&#x0A;- Renamed element: &apos;frac&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;frac&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;fracCalc{FracCalc.java[FracCalc~toMixedNum~\[I@frac!4770!4779!4776!4779!\[I!0!true" name="operand" references="true" stamp="1480958257394" version="1.0"/>
+</session>

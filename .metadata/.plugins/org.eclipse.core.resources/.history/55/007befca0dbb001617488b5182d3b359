@@ -125,10 +125,10 @@ public class FracCalc {
 		return multiplyFrac(firstOperand, answer);
     }
     
-    public static String toMixedNum(int[] operand){
-    	int wholeNumber = operand[0] / operand[1];
-    	int numerator = operand[0] % operand[1];
-    	int denominator = operand[1];
+    public static String toMixedNum(int[] frac){
+    	int wholeNumber = frac[0] / frac[1];
+    	int numerator = frac[0] % frac[1];
+    	int denominator = frac[1];
     	if(numerator < 0){
     		numerator *= -1;
     	}
