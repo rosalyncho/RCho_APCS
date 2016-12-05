@@ -37,13 +37,13 @@ public class FracCalc {
 		int [] firstOperand=parseFractions(operator[0]);
 		int [] secondOperand=parseFractions(operator[2]);
 		int[] answer = new int [2];
-        if (operator[1].equals("+")){ // if the operator is positive
+        if (operator[1].equals("+")){
         	answer = addFrac(firstOperand,secondOperand);
-        }else if(operator[1].equals("-")){ // if the operator is negative
+        }else if(operator[1].equals("-")){
         	answer = subtractFrac(firstOperand,secondOperand);
-        }else if(operator[1].equals("*")){ // if the operator is multiplication
+        }else if(operator[1].equals("*")){
         	answer = multiplyFrac(firstOperand,secondOperand);
-        }else if(operator[1].equals("/")){ // if the operator is division
+        }else if(operator[1].equals("/")){
         	answer = divideFrac(firstOperand,secondOperand);
         }
         return(toMixedNum(answer));
@@ -88,7 +88,6 @@ public class FracCalc {
 		return toImproperFrac;
 	}
     
-    // addition
     public static int[] addFrac(int[] firstOperand, int[] secondOperand)
     {
     	int[] answer = new int[2];
@@ -104,14 +103,12 @@ public class FracCalc {
 		return answer;
     }
     
-    // subtraction
     public static int[] subtractFrac(int[] firstOperand, int[] secondOperand)
     {
     	secondOperand[0]=secondOperand[0]*-1;
-		return addFrac(firstOperand, secondOperand); // passes to addition
+		return addFrac(firstOperand, secondOperand);
     }
     
-    // multiplication
     public static int[] multiplyFrac(int[] firstOperand, int[] secondOperand)
     {
     	int[] answer = new int[2];
@@ -120,16 +117,14 @@ public class FracCalc {
 		return answer;
     }
     
-    // division
     public static int[] divideFrac(int[] firstOperand, int[] secondOperand)
     {
     	int[] answer = new int[2];
 		answer[0]=secondOperand[1];
 		answer[1]=secondOperand[0];
-		return multiplyFrac(firstOperand, answer); // passes to multiplication
+		return multiplyFrac(firstOperand, answer);
     }
     
-    // converts improper fraction to mixed number for the final answer
     public static String toMixedNum(int[] operand){
     	int wholeNumber = operand[0] / operand[1];
     	int numerator = operand[0] % operand[1];
