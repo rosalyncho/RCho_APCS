@@ -33,20 +33,20 @@ public class FracCalc {
     { 
         // TODO: Implement this function to produce the solution to the input
     	
-    	String [] operator=parseInput(input);
-		int [] firstOperand=parseFractions(operator[0]);
-		int [] secondOperand=parseFractions(operator[2]);
+    	String[] operator=parseInput(input);
+		int[] firstOperand=parseFractions(operator[0]); // index 0 is first operand
+														 // index 1 is the operator
+		int[] secondOperand=parseFractions(operator[2]); // index 2 is second operand
 		int[] answer = new int [2];
-        if (operator[1].equals("+")){ // if the operator is positive
+        if (operator[1].equals("+")) // if the operator is positive
         	answer = addFrac(firstOperand,secondOperand);
-        }else if(operator[1].equals("-")){ // if the operator is negative
+        else if(operator[1].equals("-")) // if the operator is negative
         	answer = subtractFrac(firstOperand,secondOperand);
-        }else if(operator[1].equals("*")){ // if the operator is multiplication
+        else if(operator[1].equals("*")) // if the operator is multiplication
         	answer = multiplyFrac(firstOperand,secondOperand);
-        }else if(operator[1].equals("/")){ // if the operator is division
+        else if(operator[1].equals("/")) // if the operator is division
         	answer = divideFrac(firstOperand,secondOperand);
-        }
-        return(toMixedNum(answer));
+        return toMixedNum(answer);
     }
 
     // TODO: Fill in the space below with any helper methods that you think you will need
@@ -60,6 +60,7 @@ public class FracCalc {
     public static int[] parseFractions(String operand)
     {
     	int[] answer = new int[3];
+    	
     	int operandLength = operand.length();
     	if (operand.indexOf("_")==-1 && operand.indexOf("/")==-1) { // if the value is a whole number
     		answer[0] = Integer.parseInt(operand);
@@ -73,29 +74,34 @@ public class FracCalc {
     		answer[0] = Integer.parseInt(operand.substring(0,operand.indexOf("_")));
     		answer[1] = Integer.parseInt(operand.substring(operand.indexOf("_")+1,operand.indexOf("/")));
     		answer[2] = Integer.parseInt(operand.substring(operand.indexOf("/")+1));
-    //		toImproperFrac(wholeNumber,numerator,denominator);
     	}
-    	int[] improperFrac = toImproperFrac(answer[0], answer[1], answer[2]);
-    	return improperFrac;
+    	return toImproperFrac(answer);
     	
     }
     
  // converts mixed number into an improper fraction
-    public static int[] toImproperFrac (int wholeNumber, int numerator, int denominator) {
-    	int[] toImproperFrac = new int[2];
-		toImproperFrac[0] = wholeNumber * denominator + numerator;
-		toImproperFrac[1] = denominator;
-		return toImproperFrac;
+    public static int[] toImproperFrac (int[] operand) {
+    	if(operand[0] == 0){ // if the operand is 0
+    		operand[0] = operand[1];
+    	}else if(operand[0] < 0){ // if the operand is negative
+    		operand[0] = operand[0] * operand[2] - operand[1];
+    	}else{ // if the operand is positive
+    		operand[0] = operand[0] * operand[2] + operand[1];
+    	}
+    	operand[1] = operand[2]; // denominator
+    	
+    	return operand;
 	}
     
     // addition
     public static int[] addFrac(int[] firstOperand, int[] secondOperand)
     {
     	int[] answer = new int[2];
-    	if(firstOperand[1] == secondOperand[1]){
+    	
+    	if(firstOperand[1] == secondOperand[1]){ // if the fractions have the same denominators
     		answer[0] = firstOperand[0] + secondOperand[0];
     		answer[1] = firstOperand[1];
-    	}else{
+    	}else{ // if the fractions have different denominators
     		firstOperand[0] = firstOperand[0] * secondOperand[1];
     		secondOperand[0] = secondOperand[0] * firstOperand[1];
     		answer[0] = firstOperand[0] + secondOperand[0];
@@ -107,7 +113,7 @@ public class FracCalc {
     // subtraction
     public static int[] subtractFrac(int[] firstOperand, int[] secondOperand)
     {
-    	secondOperand[0]=secondOperand[0]*-1;
+    	secondOperand[0]=secondOperand[0]*-1; // multiply -1 to the numerator of the second operand
 		return addFrac(firstOperand, secondOperand); // passes to addition
     }
     
@@ -124,7 +130,7 @@ public class FracCalc {
     public static int[] divideFrac(int[] firstOperand, int[] secondOperand)
     {
     	int[] answer = new int[2];
-		answer[0]=secondOperand[1];
+		answer[0]=secondOperand[1]; // flips the second operand's numerator and denominator
 		answer[1]=secondOperand[0];
 		return multiplyFrac(firstOperand, answer); // passes to multiplication
     }
@@ -142,5 +148,4 @@ public class FracCalc {
     	}
     	return (wholeNumber + "_" + numerator + "/" + denominator);
     }
-
 }
