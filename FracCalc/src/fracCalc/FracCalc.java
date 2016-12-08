@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class FracCalc {
 
-    public static void main(String[] args) 
+    public static void main(String[] args)
     {
         // TODO: Read the input from the user and call produceAnswer with an equation
     	Scanner console = new Scanner(System.in);
@@ -121,8 +121,8 @@ public class FracCalc {
     public static int[] multiplyFrac(int[] firstOperand, int[] secondOperand)
     {
     	int[] answer = new int[2];
-		answer[0]= firstOperand[0]*secondOperand[0];
-		answer[1] = firstOperand[1]*secondOperand[1];
+		answer[0]= firstOperand[0]*secondOperand[0]; // multiply the numerators
+		answer[1] = firstOperand[1]*secondOperand[1]; // multiply the denominators
 		return answer;
     }
     
@@ -140,12 +140,16 @@ public class FracCalc {
     	int wholeNumber = operand[0] / operand[1];
     	int numerator = operand[0] % operand[1];
     	int denominator = operand[1];
-    	if(numerator < 0){
+    	if(numerator < 0){ // if the numerator is negative
     		numerator *= -1;
     	}
-    	if(denominator < 0){
+    	if(denominator < 0){ // if the denominator is negative
     		denominator *= -1;
     	}
     	return (wholeNumber + "_" + numerator + "/" + denominator);
+    }
+    
+    public static String simplify(int[] operand) {
+    	return "";
     }
 }
