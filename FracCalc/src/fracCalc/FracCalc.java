@@ -1,6 +1,6 @@
 // Rosalyn Cho
-// FracCalc Checkpoint 3
-// 12/4/2016
+// FracCalc Final
+// 12/10/2016
 
 package fracCalc;
 
@@ -14,10 +14,11 @@ public class FracCalc {
     	Scanner console = new Scanner(System.in);
     	System.out.println("Enter your operation.");
     	String input = console.nextLine();
-    	while (input.equals("quit")){
-    		String answer = produceAnswer(input);
-    		System.out.println(answer);
-    	}
+    	while(input.equals("quit")){ // loop until user types quit
+			String answer=produceAnswer(input);
+			System.out.println(answer);
+			System.out.println("Enter another operation");
+		}
     	System.out.println(produceAnswer(input));
     }
     
@@ -35,7 +36,7 @@ public class FracCalc {
     	
     	String[] operator=parseInput(input);
 		int[] firstOperand=parseFractions(operator[0]); // index 0 is first operand
-														 // index 1 is the operator
+												 		// index 1 is the operator
 		int[] secondOperand=parseFractions(operator[2]); // index 2 is second operand
 		int[] answer = new int [2];
         if (operator[1].equals("+")) // if the operator is positive
@@ -148,7 +149,7 @@ public class FracCalc {
     	int whole = fraction[0];
     	int numerator = fraction[1];
     	int denominator = fraction[2];
-    	if(fraction.length == 1 || numerator == 0){
+    	if(numerator == 0){
     		return (Integer.toString(whole));
     	}
     	if(numerator < 0 && whole != 0){ // if numerator is negative and whole number exists
@@ -161,6 +162,10 @@ public class FracCalc {
     		numerator = numerator * -1; // makes the numerator negative
     		denominator = denominator * -1; // makes the denominator positive
     	}
+    	if (denominator < 0 && numerator < 0){ // if both numerator and denominator are negative
+    		numerator = numerator * -1;         // makes the numerator positive
+    		denominator = denominator *-1;		// makes the denominator positive
+    	}
     	int gcf = gcf(numerator, denominator); // call gcf
     	for(int i = gcf + 1; i < denominator; i++){
     		if(numerator % i == 0 && denominator % i == 0){
@@ -169,19 +174,27 @@ public class FracCalc {
     	}
     	int newNumerator = numerator / gcf; // simplifying using gcf
     	int newDenominator = denominator / gcf;
-    	if(whole == 0){ // if there's no whole number
+    	
+    	if(whole == 0 && newNumerator != 0 ){ // if there's no whole number
     		return(newNumerator + "/" + newDenominator);
+    	} else if (whole < 0 && newNumerator < 0){ // if both whole number and numerator are negative
+    		newNumerator = newNumerator*-1;
+    		return (whole + "_" + newNumerator + "/" + newDenominator);
+    	} else if (newNumerator == 0 && whole != 0){ // if whole number exists but fraction equals 0
+        	return (whole + "");
+    	}else if (whole == 0 && newNumerator == 0){	// if both whole number and numerator are zero
+    		return ("0");
     	}else{ // if there's whole number
     		return (whole + "_" + newNumerator + "/" + newDenominator);
     	}
     }
     
-    public static int gcf(int a, int b){//determines greatest common factor
-    	while(a!=0 && b!=0) {
-    	int c = b;
-    	b = a%b;
-    	a = c;
+    public static int gcf(int numerator, int denominator){//determines greatest common factor
+    	while(numerator!=0 && denominator!=0) {
+    	int c = denominator;
+    	denominator = numerator%denominator;
+    	numerator = c;
     	}
-    	return a+b;
+    	return numerator+denominator;
     }
 }
