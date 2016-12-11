@@ -46,7 +46,7 @@ public class FracCalc {
         	answer = multiplyFrac(firstOperand,secondOperand);
         else if(operator[1].equals("/")) // if the operator is division
         	answer = divideFrac(firstOperand,secondOperand);
-        return toMixedNum(answer);
+        return simplify(toMixedNum(answer));
     }
 
     // TODO: Fill in the space below with any helper methods that you think you will need
@@ -136,20 +136,52 @@ public class FracCalc {
     }
     
     // converts improper fraction to mixed number for the final answer
-    public static String toMixedNum(int[] operand){
-    	int wholeNumber = operand[0] / operand[1];
-    	int numerator = operand[0] % operand[1];
-    	int denominator = operand[1];
-    	if(numerator < 0){ // if the numerator is negative
-    		numerator *= -1;
-    	}
-    	if(denominator < 0){ // if the denominator is negative
-    		denominator *= -1;
-    	}
-    	return (wholeNumber + "_" + numerator + "/" + denominator);
+    public static int[] toMixedNum(int[] improperFrac){
+    	int[] mixedNumber = new int[3];
+    	mixedNumber[0] = improperFrac[0] / improperFrac[1]; // whole number
+    	mixedNumber[1] = improperFrac[0] % improperFrac[1]; // numerator
+    	mixedNumber[2] = improperFrac[1]; // denominator
+    	return (mixedNumber);
     }
     
-    public static String simplify(int[] operand) {
-    	return "";
+    public static String simplify(int[] fraction) {
+    	int whole = fraction[0];
+    	int numerator = fraction[1];
+    	int denominator = fraction[2];
+    	if(fraction.length == 1 || numerator == 0){
+    		return (Integer.toString(whole));
+    	}
+    	if(numerator < 0 && whole != 0){ // if numerator is negative and whole number exists
+    		numerator = numerator * -1;
+    	}
+    	if(denominator < 0 && whole != 0){ // if denominator is negative and whole number exists
+    		denominator = denominator * -1;
+    	}
+    	if(numerator > 0 && denominator < 0) { // if the numerator is positive and denominator is negative
+    		numerator = numerator * -1; // makes the numerator negative
+    		denominator = denominator * -1; // makes the denominator positive
+    	}
+    	int gcf = gcf(numerator, denominator); // call gcf
+    	for(int i = gcf + 1; i < denominator; i++){
+    		if(numerator % i == 0 && denominator % i == 0){
+    			gcf = i;
+    		}
+    	}
+    	int newNumerator = numerator / gcf; // simplifying using gcf
+    	int newDenominator = denominator / gcf;
+    	if(whole == 0){ // if there's no whole number
+    		return(newNumerator + "/" + newDenominator);
+    	}else{ // if there's whole number
+    		return (whole + "_" + newNumerator + "/" + newDenominator);
+    	}
+    }
+    
+    public static int gcf(int a, int b){//determines greatest common factor
+    	while(a!=0 && b!=0) {
+    	int c = b;
+    	b = a%b;
+    	a = c;
+    	}
+    	return a+b;
     }
 }
